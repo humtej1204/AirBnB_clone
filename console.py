@@ -7,17 +7,17 @@ from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
-	"""Definition of the class
-	"""
+    """Definition of the class
+    """
 
-	prompt = "(hbnb) "
+    prompt = "(hbnb) "
 
-	def do_create(self, line):
-		"""Creates a new instance of a class and
-		saves to the JSON file and prints the id
-		"""
+    def do_create(self, line):
+        """Creates a new instance of a class and
+        saves to the JSON file and prints the id
+        """
 
-		args = line.split()
+        args = line.split()
         argc = len(args)
         if argc == 0:
             print("** class name missing **")
@@ -29,17 +29,17 @@ class HBNBCommand(cmd.Cmd):
             print(obj.id)
         except KeyError:
             print("** class doesn't exist **")
-        
+
     def do_show(self, line):
         """Prints the string representation of an instance based
-		on the class name and id
+        on the class name and id
 
-		Args:
-			line: input of the console
+        Args:
+            line: input of the console
 
-		Raises:
-			KeyError = if the instance is not found
-		"""
+        Raises:
+            KeyError = if the instance is not found
+        """
         args = line.split()
         argc = len(args)
         if argc == 0:
@@ -59,17 +59,17 @@ class HBNBCommand(cmd.Cmd):
             print(obj)
         except KeyError:
             print("** no instance found **")
-        
+
     def do_destroy(self, line):
-		"""Deletes an instance based on the class name and id
-		and save the change into the JSON file
+        """Deletes an instance based on the class name and id
+        and save the change into the JSON file
 
-		Args:
-			line = input of the console
+        Args:
+            line = input of the console
 
-		Raises:
-			KeyError = if the instance is not found
-		"""
+        Raises:
+            KeyError = if the instance is not found
+        """
 
         args = line.split()
         argc = len(args)
@@ -92,12 +92,12 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
 
     def do_all(self, line):
-		"""Prints all string representation of all instances based
-		or not on the class name
+        """Prints all string representation of all instances based
+        or not on the class name
 
-		Args:
-			line = input of the console
-		"""
+        Args:
+            line = input of the console
+        """
         args = line.split()
         argc = len(args)
         dict_obj = storage.all()
@@ -110,18 +110,18 @@ class HBNBCommand(cmd.Cmd):
         if not args[0] in models:
             print("** class doesn't exist **")
             return
-        
+
         for k, v in dict_obj.items():
             if args[0] in k:
                 list_str.append(str(v))
         print(list_str)
 
     def do_count(self, line):
-		"""Counts the amount the instances of a class
+        """Counts the amount the instances of a class
 
-		Args:
-			line = input of the console
-		"""
+        Args:
+            line = input of the console
+        """
         args = line.split()
         argc = len(args)
         dict_obj = storage.all()
@@ -135,18 +135,18 @@ class HBNBCommand(cmd.Cmd):
         for k, v in dict_obj.items():
             if args[0] in k:
                 count += 1
-        print(count)   
-    
+        print(count)
+
     def do_update(self, line):
-		"""Updates an instance based on the class name and id by adding
-		or updating attribute(save the change into the JSON file
-		
-		Args:
-			line = input of the console
-		
-		Exception:
-			KeyError = if the instance is not found
-		"""
+        """Updates an instance based on the class name and id by adding
+        or updating attribute(save the change into the JSON file
+
+        Args:
+            line = input of the console
+
+        Exception:
+            KeyError = if the instance is not found
+        """
         args = line.split()
         argc = len(args)
         if argc == 0:
@@ -177,26 +177,34 @@ class HBNBCommand(cmd.Cmd):
     def do_quit(self, line):
         """Quit command to exit the program"""
         return True
+
     def do_EOF(self, line):
         """EOF command to exit the program"""
         print()
         return True
+
     def help_help(self):
         print("help [command]")
 
     def emptyline(self):
-		"""Pass"""
+        """Pass"""
         pass
 
     def default(self, line):
-		"""Identify the commands with other syntax and execute it respective action
+        """Identify the commands with other syntax and execute
+        it respective action
 
-		Args:
-			line = input of the console
-		"""
-        methods = {"all": self.do_all, "count": self.do_count, "show": self.do_show,
-                    "destroy": self.do_destroy, "update": self.do_update}
-        
+        Args:
+            line = input of the console
+        """
+        methods = {
+                "all": self.do_all,
+                "count": self.do_count,
+                "show": self.do_show,
+                "destroy": self.do_destroy,
+                "update": self.do_update
+                }
+
         separators = ["(", ")", ".", ",", "\"", "'"]
         input = line
         for s in separators:
@@ -208,6 +216,7 @@ class HBNBCommand(cmd.Cmd):
             meth_cmd(" ".join(list_args))
         except KeyError:
             print("*** Unknown syntax: {}".format(input))
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
