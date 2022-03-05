@@ -174,7 +174,6 @@ class HBNBCommand(cmd.Cmd):
 
     def do_EOF(self, line):
         """EOF command to exit the program\n"""
-        print()
         return True
 
     #def help_help(self):
