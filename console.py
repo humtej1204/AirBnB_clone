@@ -1,12 +1,23 @@
 #!/usr/bin/python3
+""" This module supplies the ``HBNBCommand`` class
+"""
 import cmd
 from models.engine.file_storage import models
 from models import storage
 
+
 class HBNBCommand(cmd.Cmd):
-    prompt = "(hbnb) "
-    def do_create(self, line):
-        args = line.split()
+	"""Definition of the class
+	"""
+
+	prompt = "(hbnb) "
+
+	def do_create(self, line):
+		"""Creates a new instance of a class and
+		saves to the JSON file and prints the id
+		"""
+
+		args = line.split()
         argc = len(args)
         if argc == 0:
             print("** class name missing **")
@@ -20,7 +31,15 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         
     def do_show(self, line):
-        
+        """Prints the string representation of an instance based
+		on the class name and id
+
+		Args:
+			line: input of the console
+
+		Raises:
+			KeyError = if the instance is not found
+		"""
         args = line.split()
         argc = len(args)
         if argc == 0:
@@ -42,6 +61,15 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
         
     def do_destroy(self, line):
+		"""Deletes an instance based on the class name and id
+		and save the change into the JSON file
+
+		Args:
+			line = input of the console
+
+		Raises:
+			KeyError = if the instance is not found
+		"""
 
         args = line.split()
         argc = len(args)
@@ -64,6 +92,12 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
 
     def do_all(self, line):
+		"""Prints all string representation of all instances based
+		or not on the class name
+
+		Args:
+			line = input of the console
+		"""
         args = line.split()
         argc = len(args)
         dict_obj = storage.all()
@@ -83,6 +117,11 @@ class HBNBCommand(cmd.Cmd):
         print(list_str)
 
     def do_count(self, line):
+		"""Counts the amount the instances of a class
+
+		Args:
+			line = input of the console
+		"""
         args = line.split()
         argc = len(args)
         dict_obj = storage.all()
@@ -99,6 +138,15 @@ class HBNBCommand(cmd.Cmd):
         print(count)   
     
     def do_update(self, line):
+		"""Updates an instance based on the class name and id by adding
+		or updating attribute(save the change into the JSON file
+		
+		Args:
+			line = input of the console
+		
+		Exception:
+			KeyError = if the instance is not found
+		"""
         args = line.split()
         argc = len(args)
         if argc == 0:
@@ -137,9 +185,15 @@ class HBNBCommand(cmd.Cmd):
         print("help [command]")
 
     def emptyline(self):
+		"""Pass"""
         pass
 
     def default(self, line):
+		"""Identify the commands with other syntax and execute it respective action
+
+		Args:
+			line = input of the console
+		"""
         methods = {"all": self.do_all, "count": self.do_count, "show": self.do_show,
                     "destroy": self.do_destroy, "update": self.do_update}
         
