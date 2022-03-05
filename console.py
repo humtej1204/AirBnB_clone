@@ -1,14 +1,14 @@
 #!/usr/bin/python3
-""" This module supplies the ``HBNBCommand`` class
-"""
+
+""" This module supplies the HBNBCommand class"""
+
 import cmd
 from models.engine.file_storage import models
 from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
-    """Definition of the class
-    """
+    """Definition of the class"""
 
     prompt = "(hbnb) "
 
@@ -175,9 +175,6 @@ class HBNBCommand(cmd.Cmd):
     def do_EOF(self, line):
         """EOF command to exit the program\n"""
         return True
-
-    #def help_help(self):
-    #    print("help [command]")
 
     def emptyline(self):
         """Pass\n"""
