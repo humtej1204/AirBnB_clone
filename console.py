@@ -168,11 +168,11 @@ class HBNBCommand(cmd.Cmd):
         setattr(obj, args[2], args[3])
         obj.save()
 
-    def do_quit(self):
+    def do_quit(self, line):
         """Quit command to exit the program\n"""
         return True
 
-    def do_EOF(self):
+    def do_EOF(self, line):
         """EOF command to exit the program\n"""
         return True
 
@@ -207,7 +207,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             command = list_args[0]
         try:
-            meth_cmd = methods[command]
+            methi_cmd = methods[command]
             meth_cmd(" ".join(list_args))
         except KeyError:
             print("*** Unknown syntax: {}".format(input))
