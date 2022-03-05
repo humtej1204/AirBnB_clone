@@ -177,12 +177,11 @@ class HBNBCommand(cmd.Cmd):
         print()
         return True
 
-    def help_help(self):
-        print("help [command]")
+    #def help_help(self):
+    #    print("help [command]")
 
     def emptyline(self):
-        """Pass
-        """
+        """Pass\n"""
         pass
 
     def default(self, line):
