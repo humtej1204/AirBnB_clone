@@ -210,7 +210,10 @@ class HBNBCommand(cmd.Cmd):
         for s in separators:
             line = line.replace(s, " ")
         list_args = line.split()
-        command = list_args.pop(1)
+        if len(list_args) > 1:
+            command = list_args.pop(1)
+        else:
+            command = list_args[0]
         try:
             meth_cmd = methods[command]
             meth_cmd(" ".join(list_args))
