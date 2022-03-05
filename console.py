@@ -14,8 +14,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, line):
         """Creates a new instance of a class and
-        saves to the JSON file and prints the id
-        """
+        saves to the JSON file and prints the id\n"""
 
         args = line.split()
         argc = len(args)
@@ -38,8 +37,7 @@ class HBNBCommand(cmd.Cmd):
             line: input of the console
 
         Raises:
-            KeyError = if the instance is not found
-        """
+            KeyError = if the instance is not found\n"""
         args = line.split()
         argc = len(args)
         if argc == 0:
@@ -68,8 +66,7 @@ class HBNBCommand(cmd.Cmd):
             line = input of the console
 
         Raises:
-            KeyError = if the instance is not found
-        """
+            KeyError = if the instance is not found\n"""
 
         args = line.split()
         argc = len(args)
@@ -96,8 +93,7 @@ class HBNBCommand(cmd.Cmd):
         or not on the class name
 
         Args:
-            line = input of the console
-        """
+            line = input of the console\n"""
         args = line.split()
         argc = len(args)
         dict_obj = storage.all()
@@ -120,8 +116,7 @@ class HBNBCommand(cmd.Cmd):
         """Counts the amount the instances of a class
 
         Args:
-            line = input of the console
-        """
+            line = input of the console\n"""
         args = line.split()
         argc = len(args)
         dict_obj = storage.all()
@@ -145,8 +140,7 @@ class HBNBCommand(cmd.Cmd):
             line = input of the console
 
         Exception:
-            KeyError = if the instance is not found
-        """
+            KeyError = if the instance is not found\n"""
         args = line.split()
         argc = len(args)
         if argc == 0:
@@ -175,13 +169,11 @@ class HBNBCommand(cmd.Cmd):
         obj.save()
 
     def do_quit(self, line):
-        """Quit command to exit the program
-        """
+        """Quit command to exit the program\n"""
         return True
 
     def do_EOF(self, line):
-        """EOF command to exit the program
-        """
+        """EOF command to exit the program\n"""
         print()
         return True
 
@@ -198,8 +190,7 @@ class HBNBCommand(cmd.Cmd):
         it respective action
 
         Args:
-            line = input of the console
-        """
+            line = input of the console\n"""
         methods = {
                 "all": self.do_all,
                 "count": self.do_count,
