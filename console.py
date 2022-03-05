@@ -162,10 +162,11 @@ class HBNBCommand(cmd.Cmd):
         if argc == 2:
             print("** attribute name missing **")
             return
-        if argc == 3:
+        if argc % 2:
             print("** value missing **")
             return
-        setattr(obj, args[2], args[3])
+        for i in range(2, argc, 2):
+            setattr(obj, args[i], args[i + 1])
         obj.save()
 
     def do_quit(self, line):
@@ -174,6 +175,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_EOF(self, line):
         """EOF command to exit the program\n"""
+        print()
         return True
 
     def emptyline(self):
@@ -194,7 +196,7 @@ class HBNBCommand(cmd.Cmd):
                 "update": self.do_update
                 }
 
-        separators = ["(", ")", ".", ",", "\"", "'"]
+        separators = ["(", ")", ".", ",", "\"", "'", "{", "}", ":"]
         input = line
         for s in separators:
             line = line.replace(s, " ")
@@ -204,7 +206,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             command = list_args[0]
         try:
-            methi_cmd = methods[command]
+            meth_cmd = methods[command]
             meth_cmd(" ".join(list_args))
         except KeyError:
             print("*** Unknown syntax: {}".format(input))
