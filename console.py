@@ -168,11 +168,11 @@ class HBNBCommand(cmd.Cmd):
         setattr(obj, args[2], args[3])
         obj.save()
 
-    def do_quit(self, line):
+    def do_quit(self):
         """Quit command to exit the program\n"""
         return True
 
-    def do_EOF(self, line):
+    def do_EOF(self):
         """EOF command to exit the program\n"""
         return True
 
