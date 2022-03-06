@@ -176,9 +176,9 @@ class HBNBCommand(cmd.Cmd):
         """EOF command to exit the program\n"""
         return True
 
-    def emptyline(self):
-        """Pass\n"""
-        pass
+    #def emptyline(self):
+    #    """Pass\n"""
+    #    pass
 
     def default(self, line):
         """Identify the commands with other syntax and execute
