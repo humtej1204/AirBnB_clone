@@ -170,11 +170,11 @@ class HBNBCommand(cmd.Cmd):
         obj.save()
 
     def do_quit(self, line):
-        """Quit command to exit the program\n"""
+        """Quit command to exit the program"""
         return True
 
     def do_EOF(self, line):
-        """EOF command to exit the program\n"""
+        """EOF command to exit the program"""
         print()
         return True
 
