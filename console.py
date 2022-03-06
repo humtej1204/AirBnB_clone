@@ -13,7 +13,7 @@ class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
 
     def do_create(self, line):
-        """Creates a new instance of a class"""
+        """Creates a new instance of a class\n"""
 
         args = line.split()
         argc = len(args)
@@ -29,7 +29,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_show(self, line):
-        """Prints the string representation of an instance"""
+        """Prints the string representation of an instance\n"""
         args = line.split()
         argc = len(args)
         if argc == 0:
@@ -51,7 +51,7 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
 
     def do_destroy(self, line):
-        """Deletes an instance based on the class name and id"""
+        """Deletes an instance based on the class name and id\n"""
         args = line.split()
         argc = len(args)
         if argc == 0:
@@ -73,7 +73,7 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
 
     def do_all(self, line):
-        """Prints all string representation"""
+        """Prints all string representation\n"""
         args = line.split()
         argc = len(args)
         dict_obj = storage.all()
@@ -93,7 +93,7 @@ class HBNBCommand(cmd.Cmd):
         print(list_str)
 
     def do_count(self, line):
-        """Counts the amount the instances of a class"""
+        """Counts the amount the instances of a class\n"""
         args = line.split()
         argc = len(args)
         dict_obj = storage.all()
@@ -110,7 +110,7 @@ class HBNBCommand(cmd.Cmd):
         print(count)
 
     def do_update(self, line):
-        """Updates an instance based on the class name and id"""
+        """Updates an instance based on the class name and id\n"""
         args = line.split()
         argc = len(args)
         if argc == 0:
@@ -153,7 +153,7 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def default(self, line):
-        """Identify the commands with other syntax and execute"""
+        """Identify the commands with other syntax and execute\n"""
         methods = {
                 "all": self.do_all,
                 "count": self.do_count,
