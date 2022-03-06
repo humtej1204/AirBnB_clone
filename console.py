@@ -14,7 +14,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, line):
         """Creates a new instance of a class and
-        saves to the JSON file and prints the id\n"""
+        saves to the JSON file and prints the id"""
 
         args = line.split()
         argc = len(args)
@@ -31,13 +31,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, line):
         """Prints the string representation of an instance based
-        on the class name and id
-
-        Args:
-            line: input of the console
-
-        Raises:
-            KeyError = if the instance is not found\n"""
+        on the class name and id"""
         args = line.split()
         argc = len(args)
         if argc == 0:
@@ -60,14 +54,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_destroy(self, line):
         """Deletes an instance based on the class name and id
-        and save the change into the JSON file
-
-        Args:
-            line = input of the console
-
-        Raises:
-            KeyError = if the instance is not found\n"""
-
+        and save the change into the JSON file"""
         args = line.split()
         argc = len(args)
         if argc == 0:
@@ -90,10 +77,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, line):
         """Prints all string representation of all instances based
-        or not on the class name
-
-        Args:
-            line = input of the console\n"""
+        or not on the class name"""
         args = line.split()
         argc = len(args)
         dict_obj = storage.all()
@@ -113,10 +97,7 @@ class HBNBCommand(cmd.Cmd):
         print(list_str)
 
     def do_count(self, line):
-        """Counts the amount the instances of a class
-
-        Args:
-            line = input of the console\n"""
+        """Counts the amount the instances of a class"""
         args = line.split()
         argc = len(args)
         dict_obj = storage.all()
@@ -134,13 +115,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_update(self, line):
         """Updates an instance based on the class name and id by adding
-        or updating attribute(save the change into the JSON file
-
-        Args:
-            line = input of the console
-
-        Exception:
-            KeyError = if the instance is not found\n"""
+        or updating attribute(save the change into the JSON file"""
         args = line.split()
         argc = len(args)
         if argc == 0:
@@ -179,15 +154,12 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def emptyline(self):
-       """Pass\n"""
-       pass
+        """Pass"""
+        pass
 
     def default(self, line):
         """Identify the commands with other syntax and execute
-        it respective action
-
-        Args:
-            line = input of the console\n"""
+        it respective action"""
         methods = {
                 "all": self.do_all,
                 "count": self.do_count,
