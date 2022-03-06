@@ -178,9 +178,9 @@ class HBNBCommand(cmd.Cmd):
         print()
         return True
 
-    # def emptyline(self):
-    #    """Pass\n"""
-    #    pass
+    def emptyline(self):
+       """Pass\n"""
+       pass
 
     def default(self, line):
         """Identify the commands with other syntax and execute
