@@ -178,7 +178,7 @@ class HBNBCommand(cmd.Cmd):
         print()
         return True
 
-    #def emptyline(self):
+    # def emptyline(self):
     #    """Pass\n"""
     #    pass
 
