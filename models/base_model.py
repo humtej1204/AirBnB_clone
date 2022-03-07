@@ -17,7 +17,7 @@ class BaseModel:
                 if key == "created_at" or key == "updated_at":
                     frmat = "%Y-%m-%dT%H:%M:%S.%f"
                     setattr(self, key, datetime.strptime(value, frmat))
-                elif key != "__class__":
+                if key != "__class__":
                     setattr(self, key, value)
             return
         self.id = str(uuid.uuid4())
