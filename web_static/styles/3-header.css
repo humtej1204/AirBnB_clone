@@ -1,0 +1,11 @@
+.img-h {
+	background-image: url("../images/logo.png");
+	height: 70px;
+	background-repeat: no-repeat;
+	margin: 10px 0px 0px 20px;
+}
+header {
+	height: 70px;
+	width: 100%;
+	border-bottom: #CCCCCC 1px solid;
+}
